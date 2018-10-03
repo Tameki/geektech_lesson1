@@ -1,10 +1,8 @@
-# Android Level 2
+# Android Level 2 Lesson 1 - Navigation and Menu
 
-## AndroidStudio 3.2+ required
+##### AndroidStudio 3.2+
 
-### Lesson 1 - Navigation and Menu
-
-## 'TODO:' Вам поможет
+### 'TODO:' Вам поможет
 #### Задачи:
   * Передавать в SectionFragment его название через адаптер
   * Создать 3 фрагмента, 1 - простейший калькулятор, 2 - экран со списком любых элементов, 3 - пустой с одним текстовым полем
