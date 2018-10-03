@@ -1,5 +1,7 @@
 # Android Level 2
 
+## AndroidStudio 3.2+ required
+
 ### Lesson 1 - Navigation and Menu
 
 #### Задачи:
