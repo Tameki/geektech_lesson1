@@ -78,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
 
         initTabLayout();
 
+        mAdapter.setmTabLayout(mTabLayout);
+
         //Связываем ViewPager и TabLayout
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
         mTabLayout.addOnTabSelectedListener(new TabLayout.BaseOnTabSelectedListener(){
