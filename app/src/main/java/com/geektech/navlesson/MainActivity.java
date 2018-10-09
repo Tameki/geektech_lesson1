@@ -102,9 +102,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void initTabLayout(){
         //Добавляем табы
-        mTabLayout.addTab(getTab("Home"));
-        mTabLayout.addTab(getTab("Posts"));
-        mTabLayout.addTab(getTab("Settings"));
+        mTabLayout.addTab(getTab("Blank"));
+        mTabLayout.addTab(getTab("Calculator"));
+        mTabLayout.addTab(getTab("Message"));
     }
 
     private TabLayout.Tab getTab(String text){

@@ -5,6 +5,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.geektech.navlesson.fragments.SectionCalculatorFragment;
+import com.geektech.navlesson.fragments.SectionEmptyFragment;
 import com.geektech.navlesson.fragments.SectionFragment;
 
 // Created by askar on 10/2/18.
@@ -25,7 +27,18 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     //Возвращаем нужный фрагмент по заданной позиции i, можно использовать уже готовый список фрагментов
     @Override
     public Fragment getItem(int i) {
-        return SectionFragment.getInstance(mTabLayout.getTabAt(i).getText().toString());
+        Fragment fragment;
+        String text = mTabLayout.getTabAt(i).getText().toString();
+
+
+        switch (i) {
+            case 0 : fragment = SectionEmptyFragment.getInstance(text); break;
+            case 1 : fragment = SectionCalculatorFragment.getInstance(text); break;
+            case 2 : fragment =  SectionFragment.getInstance(text); break;
+            default : fragment =  SectionFragment.getInstance(text); break;
+        }
+
+        return fragment;
     }
 
     @Override
