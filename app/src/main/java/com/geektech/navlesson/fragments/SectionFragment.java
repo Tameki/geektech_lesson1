@@ -24,9 +24,9 @@ public class SectionFragment extends Fragment {
     //Всегда желательно использовать getInstance для создания новых инстансов объектов
     public static Fragment getInstance(String message){
         Fragment fragment = new SectionFragment();
-
-        fragment.setArguments(getBundle(message));
-
+        if (!message.equals("1")) {
+            fragment.setArguments(getBundle(message));
+        }
         return fragment;
     }
 

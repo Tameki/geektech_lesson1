@@ -34,7 +34,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         switch (i) {
             case 0 : fragment = SectionEmptyFragment.getInstance(text); break;
             case 1 : fragment = SectionCalculatorFragment.getInstance(text); break;
-            case 2 : fragment =  SectionFragment.getInstance(text); break;
+            case 2 : fragment =  SectionFragment.getInstance("1"); break;
             default : fragment =  SectionFragment.getInstance(text); break;
         }
 
