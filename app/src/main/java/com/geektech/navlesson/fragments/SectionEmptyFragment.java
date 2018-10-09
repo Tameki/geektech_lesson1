@@ -12,32 +12,29 @@ import android.widget.TextView;
 
 import com.geektech.navlesson.R;
 
-// Created by askar on 10/2/18.
-public class SectionFragment extends Fragment {
+public class SectionEmptyFragment extends Fragment {
 
-    private TextView mMessageView;
+    private TextView mMessage;
+    private TextView mText;
 
     //region Static
 
     private static String MESSAGE_KEY = "message_key";
 
-    //Всегда желательно использовать getInstance для создания новых инстансов объектов
     public static Fragment getInstance(String message){
-        Fragment fragment = new SectionFragment();
-        if (!message.equals("1")) {
-            fragment.setArguments(getBundle(message));
-        }
+        Fragment fragment = new SectionEmptyFragment();
+
+        fragment.setArguments(getBundle(message));
+
         return fragment;
     }
 
-    //Создаем новый Bundle с нашим сообщением
     public static Bundle getBundle(String message){
         Bundle args = new Bundle();
         args.putString(MESSAGE_KEY, message);
         return args;
     }
 
-    //Достаем наше сообщение из Bundle с отловом ошибки
     public static String getMessage(Bundle args){
         String message = "Empty";
 
@@ -58,7 +55,7 @@ public class SectionFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(
-                R.layout.fragment_section,
+                R.layout.fragment_empty_section,
                 container,
                 false
         );
@@ -73,11 +70,11 @@ public class SectionFragment extends Fragment {
     //region Private
 
     private void init(View rootView){
-        mMessageView = rootView.findViewById(R.id.fragment_section_message);
+        mMessage = rootView.findViewById(R.id.fragment_empty_section_message);
+        mText = rootView.findViewById(R.id.fragment_empty_section_text);
 
-        mMessageView.setText(
-                getMessage(getArguments())
-        );
+        mMessage.setText(getMessage(getArguments()));
+        mText.setText(getMessage(getArguments()));
     }
 
     //endregion

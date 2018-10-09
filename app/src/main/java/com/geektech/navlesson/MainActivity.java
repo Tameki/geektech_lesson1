@@ -78,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
 
         initTabLayout();
 
+        mAdapter.setmTabLayout(mTabLayout);
+
         //Связываем ViewPager и TabLayout
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
         mTabLayout.addOnTabSelectedListener(new TabLayout.BaseOnTabSelectedListener(){
@@ -100,9 +102,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void initTabLayout(){
         //Добавляем табы
-        mTabLayout.addTab(getTab("Home"));
-        mTabLayout.addTab(getTab("Posts"));
-        mTabLayout.addTab(getTab("Settings"));
+        mTabLayout.addTab(getTab("Blank"));
+        mTabLayout.addTab(getTab("Calculator"));
+        mTabLayout.addTab(getTab("Message"));
     }
 
     private TabLayout.Tab getTab(String text){
