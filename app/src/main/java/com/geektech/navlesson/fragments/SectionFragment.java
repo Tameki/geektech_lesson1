@@ -11,9 +11,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.geektech.navlesson.R;
+import com.geektech.navlesson.util.Observer;
+import com.geektech.navlesson.util.Topic;
 
 // Created by askar on 10/2/18.
-public class SectionFragment extends Fragment {
+public class SectionFragment extends Fragment implements Observer {
 
     private TextView mMessageView;
 
@@ -78,6 +80,13 @@ public class SectionFragment extends Fragment {
         mMessageView.setText(
                 getMessage(getArguments())
         );
+        Topic topic = Topic.getINSTANCE();
+        topic.registerObserver(this);
+    }
+
+    @Override
+    public void update(String message) {
+        mMessageView.setText(message);
     }
 
     //endregion

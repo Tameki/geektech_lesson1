@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.geektech.navlesson.R;
+import com.geektech.navlesson.util.Observer;
+import com.geektech.navlesson.util.Topic;
 
 import java.text.DecimalFormat;
 
@@ -126,6 +130,23 @@ public class SectionCalculatorFragment extends Fragment {
         buttonClear = rootView.findViewById(R.id.buttonClear);
         infoTextView = rootView.findViewById(R.id.infoTextView);
         editText = rootView.findViewById(R.id.editText);
+
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                Topic.getINSTANCE().notifyObservers(s.toString());
+            }
+        });
 
         buttonDot.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -292,6 +313,7 @@ public class SectionCalculatorFragment extends Fragment {
     private void setDataToFragment(String message) {
         Fragment fragB = SectionFragment.getInstance(message);
     }
+
 
     //endregion
 }
